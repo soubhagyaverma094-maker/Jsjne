@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AutoNest – Certified Used Cars</title>
+<style>
+:root{--bg:#f7f8fa;--fg:#14181f;--card:#fff;--mut:#5d6675;--ac:#e8590c;--bd:#e2e5ea;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1218;--fg:#eef0f4;--card:#181d26;--mut:#9aa3b2;--bd:#2a313d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1218;--fg:#eef0f4;--card:#181d26;--mut:#9aa3b2;--bd:#2a313d;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.w{max-width:1100px;margin:auto;padding:0 16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:1px solid var(--bd);z-index:5}
+header .w{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-weight:800;font-size:20px}.logo b{color:var(--ac)}
+nav a{margin-left:14px;color:var(--mut);text-decoration:none;font-size:14px}
+.btn{background:var(--ac);color:#fff;border:0;padding:10px 16px;border-radius:10px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;font-size:15px}
+.btn.o{background:transparent;color:var(--fg);border:1px solid var(--bd)}
+.hero{padding:36px 0 24px}.hero h1{font-size:clamp(28px,6vw,46px);line-height:1.1;margin:0 0 8px}
+.hero p{color:var(--mut);margin:0 0 18px}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+select,input{width:100%;padding:10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit}
+h2{margin:36px 0 12px;font-size:24px}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:7px 12px;border:1px solid var(--bd);background:var(--card);border-radius:999px;font-size:14px;cursor:pointer;color:var(--fg)}
+.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.car{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden}
+.pic{height:120px;display:flex;align-items:center;justify-content:center;font-size:56px;background:linear-gradient(135deg,#ffe8d9,#ffd0b0);position:relative}
+.tag{position:absolute;left:8px;top:8px;background:#0b7a3b;color:#fff;font-size:11px;padding:3px 8px;border-radius:6px}
+.heart{position:absolute;right:8px;top:6px;background:none;border:0;font-size:22px;cursor:pointer}
+.ci{padding:12px}.ci h3{margin:0;font-size:17px}.m{color:var(--mut);font-size:13px;margin:4px 0}
+.pr{font-size:20px;font-weight:800}.emi{color:var(--mut);font-size:13px}
+.acts{display:flex;gap:8px;margin-top:10px}.acts .btn{flex:1;text-align:center;padding:8px;font-size:14px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.feat div{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px}
+.feat b{display:block;margin-bottom:4px}.feat span{color:var(--mut);font-size:14px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+label{font-size:13px;color:var(--mut);display:block;margin:8px 0 3px}
+.big{font-size:28px;font-weight:800;color:var(--ac)}
+footer{margin-top:40px;padding:24px 0;border-top:1px solid var(--bd);color:var(--mut);font-size:13px}
+.wa{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:#25d366;color:#fff;padding:12px 16px;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 4px 14px #0004}
+</style></head><body>
+<header><div class="w"><div class="logo">Auto<b>Nest</b></div>
+<nav><a href="#cars">Buy</a><a href="#sell">Sell</a><a href="#emi">EMI</a><a href="#why">Why us</a></nav></div></header>
+
+<section class="hero"><div class="w">
+<h1>Certified used cars you can trust</h1>
+<p>200-point inspected · 7-day money-back · RC transfer & finance help</p>
+<div class="box"><div class="row">
+<select id="fb"><option value="">All brands</option></select>
+<select id="ff"><option value="">Any fuel</option><option>Petrol</option><option>Diesel</option><option>CNG</option><option>Electric</option></select>
+<select id="ft"><option value="">Any gearbox</option><option>Manual</option><option>Automatic</option></select>
+<select id="fp"><option value="">Any budget</option><option value="5">Under ₹5 L</option><option value="10">Under ₹10 L</option><option value="20">Under ₹20 L</option><option value="99">₹20 L+</option></select>
+<input id="fq" placeholder="Search model…">
+</div></div></div></section>
+
+<main class="w">
+<h2>Browse by brand</h2><div class="brands" id="brands"></div>
+
+<h2 id="cars">Available cars <small id="cnt" style="font-size:14px;color:var(--mut)"></small></h2>
+<div class="row" style="margin-bottom:12px;max-width:260px"><select id="so"><option value="">Sort: Newest</option><option value="pa">Price: low to high</option><option value="pd">Price: high to low</option><option value="ka">KMs: lowest</option></select></div>
+<div class="grid" id="list"></div>
+<p class="m">Sample listings – replace with your real stock.</p>
+
+<h2 id="sell">Sell your car – instant quote</h2>
+<div class="box"><div class="row">
+<div><label>Brand</label><select id="sb"></select></div>
+<div><label>Model</label><input id="sm" placeholder="e.g. Swift VXi"></div>
+<div><label>Year</label><input id="sy" type="number" placeholder="2019"></div>
+<div><label>KMs driven</label><input id="sk" type="number" placeholder="45000"></div>
+<div><label>Phone</label><input id="sp" type="tel" placeholder="10-digit mobile"></div>
+</div><p><button class="btn" onclick="sell()">Get quote on WhatsApp</button></p></div>
+
+<h2 id="emi">EMI calculator</h2>
+<div class="box two"><div>
+<label>Car price (₹)</label><input id="ep" type="number" value="600000">
+<label>Down payment (₹)</label><input id="ed" type="number" value="100000">
+<label>Interest rate (% p.a.)</label><input id="er" type="number" value="10.5" step="0.1">
+<label>Tenure: <span id="etl">5</span> years</label><input id="et" type="range" min="1" max="7" value="5">
+</div><div style="display:flex;flex-direction:column;justify-content:center"><div class="m">Monthly EMI</div><div class="big" id="eo">–</div><div class="m" id="ex"></div></div></div>
+
+<h2 id="why">Why buy from us</h2>
+<div class="feat" id="feat"></div>
+
+<h2>Customer reviews</h2>
+<div class="feat"><div><b>★★★★★ Rohit, Raipur</b><span>Smooth delivery and clean paperwork. Bought an i20 in two days.</span></div><div><b>★★★★★ Meena, Bilaspur</b><span>Sold my Alto with instant payment. No haggling.</span></div><div><b>★★★★☆ Aman, Durg</b><span>Inspection report matched the car exactly.</span></div></div>
+</main>
+
+<footer><div class="w">© AutoNest · Showroom address · Mon–Sun 10am–8pm · Prices indicative. Edit the number in the code (WA).</div></footer>
+<a class="wa" id="wa" href="#">💬 Chat</a>
+
+<script>
+const WA="91XXXXXXXXXX";
+const brands=["Maruti Suzuki","Hyundai","Tata","Mahindra","Kia","Toyota","Honda","MG","Skoda","Volkswagen","Renault","Nissan","Ford","Chevrolet","Datsun","Fiat","Jeep","Citroën","Isuzu","Force","Mitsubishi","Mercedes-Benz","BMW","Audi","Volvo","Land Rover","Jaguar","Lexus","Porsche","Mini","BYD","Hindustan Motors"];
+const feats=[["🔍 200-point inspection","Engine, body, electricals and flood/accident checks."],["📄 Verified history","RC, insurance, challan and loan status checked."],["↩ 7-day money-back","Return within 7 days if you are not happy."],["🛡 Warranty","Up to 12 months coverage on selected cars."],["🚗 Free test drive","At showroom or at your home."],["💳 Easy finance","Loans from partner banks, quick approval."],["🔁 Exchange & sell","Instant valuation and same-day payment."],["📑 RC transfer help","We handle paperwork and NOC."]];
+const cars=[
+["Swift VXi","Maruti Suzuki",2019,38000,"Petrol","Manual",4.6,"Raipur","🚗"],
+["Creta SX","Hyundai",2020,42000,"Diesel","Automatic",13.2,"Bhilai","🚙"],
+["Nexon XZ+","Tata",2021,29000,"Petrol","Manual",9.4,"Raipur","🚙"],
+["XUV700 AX7","Mahindra",2022,21000,"Diesel","Automatic",21.5,"Raipur","🚙"],
+["Seltos HTX","Kia",2020,47000,"Petrol","Automatic",11.1,"Durg","🚙"],
+["Innova Crysta","Toyota",2018,86000,"Diesel","Manual",15.9,"Bilaspur","🚐"],
+["City ZX","Honda",2019,52000,"Petrol","Automatic",8.7,"Raipur","🚘"],
+["Wagon R LXi","Maruti Suzuki",2017,61000,"CNG","Manual",3.2,"Bhilai","🚗"],
+["Tigor EV","Tata",2022,15000,"Electric","Automatic",9.8,"Raipur","⚡"],
+["Octavia","Skoda",2018,68000,"Petrol","Automatic",12.4,"Raipur","🚘"],
+["C-Class","Mercedes-Benz",2017,59000,"Diesel","Automatic",24.9,"Raipur","🏎"],
+["Baleno Delta","Maruti Suzuki",2021,24000,"Petrol","Manual",6.9,"Durg","🚗"]];
+const $=i=>document.getElementById(i);let sel="",fav=new Set();
+const inr=n=>"₹"+Math.round(n).toLocaleString("en-IN");
+function emi(p,r,y){const m=r/1200,n=y*12;return m?p*m*Math.pow(1+m,n)/(Math.pow(1+m,n)-1):p/n}
+brands.forEach(b=>{["fb","sb"].forEach(i=>$(i).add(new Option(b,b)))});
+$("brands").innerHTML=["All"].concat(brands).map(b=>`<button class="chip${b=="All"?" on":""}" data-b="${b}">${b}</button>`).join("");
+$("brands").onclick=e=>{const b=e.target.dataset.b;if(!b)return;sel=b=="All"?"":b;$("fb").value=sel;draw()};
+$("feat").innerHTML=feats.map(f=>`<div><b>${f[0]}</b><span>${f[1]}</span></div>`).join("");
+function draw(){
+ const b=$("fb").value,f=$("ff").value,t=$("ft").value,p=$("fp").value,q=$("fq").value.toLowerCase(),s=$("so").value;
+ document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c.dataset.b==(b||"All")));
+ let r=cars.filter(c=>(!b||c[1]==b)&&(!f||c[4]==f)&&(!t||c[5]==t)&&(!q||(c[0]+c[1]).toLowerCase().includes(q))&&(!p||(p==99?c[6]>=20:c[6]<=+p)));
+ if(s=="pa")r.sort((a,b)=>a[6]-b[6]);if(s=="pd")r.sort((a,b)=>b[6]-a[6]);if(s=="ka")r.sort((a,b)=>a[3]-b[3]);
+ $("cnt").textContent="("+r.length+")";
+ $("list").innerHTML=r.length?r.map(c=>{const i=cars.indexOf(c),pr=c[6]*1e5;return `<div class="car"><div class="pic"><span class="tag">✔ Certified</span><button class="heart" onclick="fv(${i})">${fav.has(i)?"❤️":"🤍"}</button>${c[8]}</div><div class="ci"><h3>${c[2]} ${c[1]} ${c[0]}</h3><div class="m">${c[3].toLocaleString("en-IN")} km · ${c[4]} · ${c[5]} · ${c[7]}</div><div class="pr">${inr(pr)}</div><div class="emi">EMI from ${inr(emi(pr*.9,10.5,5))}/mo</div><div class="acts"><a class="btn" target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent("Hi, I want a test drive for "+c[2]+" "+c[1]+" "+c[0])}">Test drive</a><a class="btn o" target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent("Please share details of "+c[1]+" "+c[0])}">Details</a></div></div></div>`}).join(""):"<p>No cars match. Try different filters.</p>";
+}
+function fv(i){fav.has(i)?fav.delete(i):fav.add(i);draw()}
+["fb","ff","ft","fp","so"].forEach(i=>$(i).onchange=draw);$("fq").oninput=draw;
+function sell(){const v=i=>$(i).value;if(!v("sm")||!v("sp")){alert("Please add model and phone.");return}
+ window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(`Sell my car: ${v("sb")} ${v("sm")}, ${v("sy")}, ${v("sk")} km. Phone: ${v("sp")}`),"_blank")}
+function calc(){const p=+$("ep").value-+$("ed").value,r=+$("er").value,y=+$("et").value;$("etl").textContent=y;
+ const e=emi(Math.max(p,0),r,y);$("eo").textContent=inr(e);$("ex").textContent="Loan "+inr(Math.max(p,0))+" · Total interest "+inr(e*y*12-Math.max(p,0))}
+["ep","ed","er","et"].forEach(i=>$(i).oninput=calc);
+$("wa").href="https://wa.me/"+WA;calc();draw();
+</script></body></html>
